@@ -18,7 +18,7 @@
                     customContent: '=?',
                     onDetail: '@',
                     onAdd: '@',
-                    onDelete: '@'
+                    onDelete: '&'
                 },
                 link: function($scope, $element, $attrs) {
 

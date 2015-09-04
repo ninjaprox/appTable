@@ -1,19 +1,31 @@
 <h1>appTable</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <input type="checkbox" ng-model='appTableCtrl.selectAll'>
-            </th>
-            <th ng-repeat='header in appTableCtrl.headers'>{{ header }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat='row in appTableCtrl.data'>
-            <td>
-                <input type="checkbox" ng-model='appTableCtrl.selection[row[appTableCtrl.selectField]]'>
-            </td>
-            <td ng-repeat='field in appTableCtrl.fields'>{{ row[field.fieldName] }}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" ng-model='appTableCtrl.selectAll'>
+                    </th>
+                    <th ng-repeat='header in appTableCtrl.headers'>{{ header }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='row in appTableCtrl.data'>
+                    <td>
+                        <input type="checkbox" ng-model='appTableCtrl.selection[row[appTableCtrl.selectField]]'>
+                    </td>
+                    <td ng-repeat='field in appTableCtrl.fields'>{{ row[field.fieldName] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-default" ng-click='appTableCtrl.onDelete({selection: appTableCtrl.selection})'>
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+        </button>
+    </div>
+</div>
