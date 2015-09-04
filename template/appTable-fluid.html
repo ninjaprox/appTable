@@ -44,7 +44,7 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <button class="btn btn-default" ng-click='appTableCtrl.onDelete({selection: appTableCtrl.selection})'>
+        <button class="btn btn-default" ng-click='appTableCtrl.onDelete({selection: appTableCtrl.selection})' ng-disabled='!appTableCtrl.atLeastOneSelection'>
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
         <button class="btn btn-default" ng-if='!appTableCtrl.noData' ng-click='appTableCtrl.onAdd()'>
