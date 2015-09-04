@@ -8,7 +8,11 @@
 </head>
 
 <body ng-app='app'>
-    <app-table></app-table>
+    <div ng-controller="MainController">
+        <app-table type='fixed' fields='fields' data='data' select-field='id' detail-field='field1' on-delete='onDelete(selection)' on-add='onAdd()' on-detail='onDetail(data)'></app-table>
+        <hr>
+        <app-table type='fluid' fixed-table-class='col-xs-4' fluid-table-class='col-xs-8' fixed-fields='fixedFields' fluid-fields='fluidFields' data='data' select-field='id' detail-field='field1' on-delete='onDelete(selection)' on-add='onAdd()' on-detail='onDetail(data)'></app-table>
+    </div>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src='js/app.js'></script>
     <script src="js/appTable.directive.js"></script>
