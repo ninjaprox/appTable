@@ -17,8 +17,13 @@
                         <input type="checkbox" ng-model='appTableCtrl.selection[row[appTableCtrl.selectField]]'>
                     </td>
                     <td ng-repeat='field in appTableCtrl.fields'>
-                        <a ng-if='field.fieldName === appTableCtrl.detailField' ng-click='appTableCtrl.onDetail({data: row})'>{{ row[field.fieldName] }}</a>
-                        <span ng-if='field.fieldName !== appTableCtrl.detailField'>{{ row[field.fieldName] }}</span>
+                        <div ng-if='field.customContent'>
+                            {{ field.customContent(row[field.fieldName]) }}
+                        </div>
+                        <div ng-if='!field.customContent'>
+                            <a ng-if='field.fieldName === appTableCtrl.detailField' ng-click='appTableCtrl.onDetail({data: row})'>{{ row[field.fieldName] }}</a>
+                            <span ng-if='field.fieldName !== appTableCtrl.detailField'>{{ row[field.fieldName] }}</span>
+                        </div>
                     </td>
                 </tr>
             </tbody>
