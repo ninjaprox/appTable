@@ -2,11 +2,17 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                <input type="checkbox" ng-model='appTableCtrl.selectAll'>
+            </th>
             <th ng-repeat='header in appTableCtrl.headers'>{{ header }}</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat='row in appTableCtrl.data'>
+            <td>
+                <input type="checkbox" ng-model='appTableCtrl.selection[row[appTableCtrl.selectField]]'>
+            </td>
             <td ng-repeat='field in appTableCtrl.fields'>{{ row[field.fieldName] }}</td>
         </tr>
     </tbody>

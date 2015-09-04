@@ -12,6 +12,7 @@
                     fields: '=?',
                     fixedFields: '=?',
                     fluidFieldx: '=?',
+                    selectField: '@',
                     fixedTableClass: '@',
                     fluidTableClass: '@',
                     customContent: '=?',
@@ -27,12 +28,32 @@
 
                     // Properties
                     vm.headerNames = [];
+                    vm.selectAll = false;
+                    vm.selection = {};
+                    vm.atLeastOneSelection = false;
 
                     init();
 
                     function init() {
                         // Extract headers
                         vm.headers = extractHeaders(vm.fields);
+
+                        // Watch for selection
+                        $scope.$watch('appTableCtrl.selectAll', function(selectAll) {
+                            angular.forEach(vm.data, function(value) {
+                                vm.selection[value[vm.selectField]] = selectAll;
+                            });
+                        });
+                        $scope.$watch('appTableCtrl.selection', function(value) {
+                            var selectionCount = 0;
+
+                            angular.forEach(vm.selection, function(value) {
+                                if (value) {
+                                    selectionCount++;
+                                }
+                            });
+                            vm.atLeastOneSelection = (selectionCount > 0);
+                        }, true);
                     }
 
                     // Privates
