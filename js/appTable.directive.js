@@ -17,7 +17,7 @@
                     fluidTableClass: '@',
                     customContent: '=?',
                     onDetail: '@',
-                    onAdd: '@',
+                    onAdd: '&',
                     onDelete: '&'
                 },
                 link: function($scope, $element, $attrs) {
