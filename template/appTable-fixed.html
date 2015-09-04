@@ -15,7 +15,10 @@
                     <td>
                         <input type="checkbox" ng-model='appTableCtrl.selection[row[appTableCtrl.selectField]]'>
                     </td>
-                    <td ng-repeat='field in appTableCtrl.fields'>{{ row[field.fieldName] }}</td>
+                    <td ng-repeat='field in appTableCtrl.fields'>
+                        <a ng-if='field.fieldName === appTableCtrl.detailField' ng-click='appTableCtrl.onDetail({data: row})'>{{ row[field.fieldName] }}</a>
+                        <span ng-if='field.fieldName !== appTableCtrl.detailField'>{{ row[field.fieldName] }}</span>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -24,12 +27,10 @@
 <div class="row">
     <div class="col-xs-12">
         <button class="btn btn-default" ng-click='appTableCtrl.onDelete({selection: appTableCtrl.selection})'>
-            <span class="glyphicon glyphicon-trash"></span>
-            Delete
+            <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
         <button class="btn btn-default" ng-click='appTableCtrl.onAdd()'>
-            <span class="glyphicon glyphicon-plus"></span>
-            Add
+            <span class="glyphicon glyphicon-plus"></span> Add
         </button>
     </div>
 </div>

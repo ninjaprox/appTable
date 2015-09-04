@@ -13,10 +13,11 @@
                     fixedFields: '=?',
                     fluidFieldx: '=?',
                     selectField: '@',
+                    detailField: '@',
                     fixedTableClass: '@',
                     fluidTableClass: '@',
                     customContent: '=?',
-                    onDetail: '@',
+                    onDetail: '&',
                     onAdd: '&',
                     onDelete: '&'
                 },
