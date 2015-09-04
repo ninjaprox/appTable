@@ -15,7 +15,10 @@
             columnName: 'Field 3'
         }, {
             fieldName: 'field4',
-            columnName: 'Field 4'
+            columnName: 'Field 4',
+            customContent: function(content) {
+                return 'custome ' + content;
+            }
         }, {
             fieldName: 'field5',
             columnName: 'Field 5'
@@ -26,7 +29,10 @@
         }];
         $scope.fluidFields = [{
             fieldName: 'field2',
-            columnName: 'Field 2'
+            columnName: 'Field 2',
+            customContent: function(content) {
+                return "<span class='glyphicon glyphicon-draft'></span>";
+            }
         }, {
             fieldName: 'field3',
             columnName: 'Field 3'
