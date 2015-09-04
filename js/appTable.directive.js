@@ -5,13 +5,14 @@
         .directive('appTable', [function() {
             return {
                 restrict: 'E',
-                templateUrl: 'template/appTable-fixed.html',
+                templateUrl: function(element, attrs) {
+                    return 'template/appTable-' + attrs.type + '.html';
+                },
                 scope: {
                     data: '=',
-                    type: '@',
                     fields: '=?',
                     fixedFields: '=?',
-                    fluidFieldx: '=?',
+                    fluidFields: '=?',
                     selectField: '@',
                     detailField: '@',
                     fixedTableClass: '@',
@@ -39,6 +40,8 @@
                     function init() {
                         // Extract headers
                         vm.headers = extractHeaders(vm.fields);
+                        vm.fixedHeaders = extractHeaders(vm.fixedFields);
+                        vm.fluidHeaders = extractHeaders(vm.fluidFields);
 
                         // Watch for selection
                         $scope.$watch('appTableCtrl.selectAll', function(selectAll) {
@@ -65,6 +68,10 @@
 
                     // Privates
                     function extractHeaders(fields) {
+                        if (!fields) {
+                            return null;
+                        }
+
                         return fields.map(function(field) {
                             return field.columnName || field.fieldName;
                         });

@@ -1,0 +1,54 @@
+<h1>appTable</h1>
+<div ng-if='appTableCtrl.noData'>There is no data.</div>
+<div class="row" ng-if='!appTableCtrl.noData'>
+    <div class="{{ appTableCtrl.fixedTableClass }}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" ng-model='appTableCtrl.selectAll'>
+                    </th>
+                    <th ng-repeat='header in appTableCtrl.fixedHeaders'>{{ header }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='row in appTableCtrl.data'>
+                    <td>
+                        <input type="checkbox" ng-model='appTableCtrl.selection[row[appTableCtrl.selectField]]'>
+                    </td>
+                    <td ng-repeat='field in appTableCtrl.fixedFields'>
+                        <a ng-if='field.fieldName === appTableCtrl.detailField' ng-click='appTableCtrl.onDetail({data: row})'>{{ row[field.fieldName] }}</a>
+                        <span ng-if='field.fieldName !== appTableCtrl.detailField'>{{ row[field.fieldName] }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="{{ appTableCtrl.fluidTableClass }}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th ng-repeat='header in appTableCtrl.fluidHeaders'>{{ header }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='row in appTableCtrl.data'>
+                    <td ng-repeat='field in appTableCtrl.fluidFields'>
+                        <a ng-if='field.fieldName === appTableCtrl.detailField' ng-click='appTableCtrl.onDetail({data: row})'>{{ row[field.fieldName] }}</a>
+                        <span ng-if='field.fieldName !== appTableCtrl.detailField'>{{ row[field.fieldName] }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-default" ng-click='appTableCtrl.onDelete({selection: appTableCtrl.selection})'>
+            <span class="glyphicon glyphicon-trash"></span> Delete
+        </button>
+        <button class="btn btn-default" ng-if='!appTableCtrl.noData' ng-click='appTableCtrl.onAdd()'>
+            <span class="glyphicon glyphicon-plus"></span> Add
+        </button>
+    </div>
+</div>
