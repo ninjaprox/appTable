@@ -32,6 +32,7 @@
                     vm.selectAll = false;
                     vm.selection = {};
                     vm.atLeastOneSelection = false;
+                    vm.noData = true;
 
                     init();
 
@@ -55,6 +56,11 @@
                             });
                             vm.atLeastOneSelection = (selectionCount > 0);
                         }, true);
+
+                        // Watch for data
+                        $scope.$watchCollection('appTableCtrl.data', function(value) {
+                            vm.noData = !value || value.length == 0;
+                        });
                     }
 
                     // Privates

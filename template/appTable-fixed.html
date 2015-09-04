@@ -1,5 +1,6 @@
 <h1>appTable</h1>
-<div class="row">
+<div ng-if='appTableCtrl.noData'>There is no data.</div>
+<div class="row" ng-if='!appTableCtrl.noData'>
     <div class="col-xs-12">
         <table class="table">
             <thead>
@@ -29,7 +30,7 @@
         <button class="btn btn-default" ng-click='appTableCtrl.onDelete({selection: appTableCtrl.selection})'>
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
-        <button class="btn btn-default" ng-click='appTableCtrl.onAdd()'>
+        <button class="btn btn-default" ng-if='!appTableCtrl.noData' ng-click='appTableCtrl.onAdd()'>
             <span class="glyphicon glyphicon-plus"></span> Add
         </button>
     </div>
