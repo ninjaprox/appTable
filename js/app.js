@@ -3,7 +3,7 @@
 
     var app = angular.module('app', []);
 
-    app.controller('MainController', ['$scope', function($scope) {
+    app.controller('MainController', ['$scope', '$sce', function($scope, $sce) {
         $scope.fields = [{
             fieldName: 'field1',
             columnName: 'Field 1'
@@ -17,7 +17,7 @@
             fieldName: 'field4',
             columnName: 'Field 4',
             customContent: function(content) {
-                return 'custome ' + content;
+                return $sce.trustAsHtml(content);
             }
         }, {
             fieldName: 'field5',
@@ -31,7 +31,7 @@
             fieldName: 'field2',
             columnName: 'Field 2',
             customContent: function(content) {
-                return "<span class='glyphicon glyphicon-draft'></span>";
+                return $sce.trustAsHtml("<span class='glyphicon glyphicon-trash'></span>");
             }
         }, {
             fieldName: 'field3',
