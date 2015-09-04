@@ -5,5 +5,9 @@
             <th ng-repeat='header in appTableCtrl.headers'>{{ header }}</th>
         </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+        <tr ng-repeat='row in appTableCtrl.data'>
+            <td ng-repeat='field in appTableCtrl.fields'>{{ row[field.fieldName] }}</td>
+        </tr>
+    </tbody>
 </table>
