@@ -5,7 +5,7 @@
         .directive('appTable', [function() {
             return {
                 restrict: 'E',
-                templateUrl: 'template/appTable.html',
+                templateUrl: 'template/appTable-fixed.html',
                 scope: {},
                 link: function($scope, $element, $attrs) {
 
