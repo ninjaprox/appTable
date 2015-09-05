@@ -57,6 +57,9 @@ module.exports = function(grunt) {
       files: ['test/**/*.html']
     },
     watch: {
+      options: {
+        livereload: true
+      },
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
@@ -64,6 +67,9 @@ module.exports = function(grunt) {
       lib_test: {
         files: '<%= jshint.lib_test.src %>',
         tasks: ['jshint:lib_test', 'qunit']
+      },
+      html: {
+        files: '*.html'
       }
     },
     connect: {
