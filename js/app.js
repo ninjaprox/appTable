@@ -31,7 +31,11 @@
             fieldName: 'field2',
             columnName: 'Field 2',
             customContent: function(content) {
-                return $sce.trustAsHtml("<span class='glyphicon glyphicon-trash'></span>");
+                if (content === 'yes') {
+                    return $sce.trustAsHtml("<span class='glyphicon glyphicon-ok'></span>");
+                } else {
+                    return $sce.trustAsHtml("<span class='glyphicon glyphicon-remove'></span>");
+                }
             }
         }, {
             fieldName: 'field3',
@@ -46,63 +50,63 @@
         $scope.data = [{
             id: 1,
             field1: 'data',
-            field2: 'data',
+            field2: 'yes',
             field3: 'data',
             field4: 'data',
             field5: 'data'
         }, {
             id: 2,
             field1: 'data',
-            field2: 'data',
+            field2: 'no',
             field3: 'data',
             field4: 'data',
             field5: 'data'
         }, {
             id: 3,
             field1: 'data',
-            field2: 'data',
+            field2: 'no',
             field3: 'data',
             field4: 'data',
             field5: 'data'
         }, {
             id: 4,
             field1: 'data',
-            field2: 'data',
+            field2: 'no',
             field3: 'data',
             field4: 'data',
             field5: 'data'
         }, {
             id: 5,
             field1: 'data',
-            field2: 'data',
+            field2: 'yes',
             field3: 'data',
             field4: 'data',
             field5: 'data'
         }, {
             id: 6,
             field1: 'data',
-            field2: 'data',
+            field2: 'yes',
             field3: 'data',
             field4: 'data',
             field5: 'data'
         }, {
             id: 7,
             field1: 'data',
-            field2: 'data',
+            field2: 'no',
             field3: 'data',
             field4: 'data',
             field5: 'data'
         }, {
             id: 8,
             field1: 'data',
-            field2: 'data',
+            field2: 'no',
             field3: 'data',
             field4: 'data',
             field5: 'data'
         }, {
             id: 9,
             field1: 'data',
-            field2: 'data',
+            field2: 'yes',
             field3: 'data',
             field4: 'data',
             field5: 'data'

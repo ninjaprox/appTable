@@ -8,7 +8,7 @@
 </head>
 
 <body ng-app='app'>
-    <div ng-controller="MainController">
+    <div class='container-fluid' ng-controller="MainController">
         <app-table type='fixed' fields='fields' data='data' select-field='id' detail-field='field1' on-delete='onDelete(selection)' on-add='onAdd()' on-detail='onDetail(data)'></app-table>
         <hr>
         <app-table type='fluid' fixed-table-class='col-xs-4' fluid-table-class='col-xs-8' fixed-fields='fixedFields' fluid-fields='fluidFields' data='data' select-field='id' detail-field='field1' on-delete='onDelete(selection)' on-add='onAdd()' on-detail='onDetail(data)'></app-table>
